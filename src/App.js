@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Register from './components/Register';
+import Login from './components/Login';
+import PublicQueries from './components/PublicQueries';
+import VolunteerQueries from './components/VolunteerQueries';
+import OrganizationRequests from './components/OrganizationRequests';
+import OrphanRequests from './components/OrphanRequests';
+import PointsTracking from './components/PointsTracking';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/public-queries" element={<PublicQueries />} />
+        <Route path="/volunteer-queries" element={<VolunteerQueries />} />
+        <Route path="/organization-requests" element={<OrganizationRequests />} />
+        <Route path="/orphan-requests" element={<OrphanRequests />} />
+        <Route path="/points-tracking" element={<PointsTracking />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Footer />
     </div>
   );
-}
+};
+
+const Home = () => (
+  <div>
+    <h1>Welcome to the Social Service Platform</h1>
+  </div>
+);
 
 export default App;
